@@ -1,0 +1,12 @@
+<h3>Building list</h3>
+
+<ul>
+    {% for object in object_list %}
+    <li>
+        <b>{{ object.address }}</b>
+        <br>
+        Build date: {{ object.build_date }}, {{ object.floor_count }} floors
+    </li>
+    <hr />
+    {% endfor %}
+</ul>
