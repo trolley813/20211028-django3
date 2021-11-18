@@ -6,9 +6,7 @@
 <ul>
     {% for object in object_list %}
     <li>
-        <b>{{ object.address }}</b>
-        <br>
-        Build date: {{ object.build_date }}, {{ object.floor_count }} floors, series {{ object.series.name }}
+        <b>{{ object.name }}</b>
     </li>
     <hr />
     {% endfor %}

@@ -1,9 +1,16 @@
-<form method="POST">
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+
+{% block content %}
+<form method="POST" class="form">
 
      {% csrf_token %}
+     {% bootstrap_form form %}
 
-    {{ form.as_p }}
-
-    <input type="submit" value="Create">
+    {% buttons %}
+    <input type="submit" value="Create" class="btn btn-primary">
+    {% endbuttons %}
 
 </form>
+{% endblock content %}
