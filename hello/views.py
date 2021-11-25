@@ -1,6 +1,7 @@
 from django.db import models
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -12,7 +13,7 @@ class BuildingSeriesCreate(CreateView):
 
     fields = ["name"]
 
-    success_url = "/hello/building_series/"
+    success_url = reverse_lazy("series-list")
 
 class BuildingSeriesList(ListView):
     model = BuildingSeries
@@ -28,14 +29,14 @@ class BuildingSeriesUpdate(UpdateView):
 class BuildingSeriesDelete(DeleteView):
     model = BuildingSeries
 
-    success_url = "/hello/buildings_series/"
+    success_url = reverse_lazy("series-list")
 
 class BuildingCreate(CreateView):
     model = Building
 
     fields = ["address", "floor_count", "build_date", "series"]
 
-    success_url = "/hello/buildings/"
+    success_url = reverse_lazy("building-list")
 
 class BuildingList(ListView):
     model = Building
@@ -51,4 +52,4 @@ class BuildingUpdate(UpdateView):
 class BuildingDelete(DeleteView):
     model = Building
 
-    success_url = "/hello/buildings/"
+    success_url = reverse_lazy("building-list")

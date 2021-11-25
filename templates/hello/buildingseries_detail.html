@@ -3,5 +3,7 @@
 {% block content %}
 <h3> {{ object.name }} </h3>
 
-<a href="/hello/building_series/"> Back to list </a>
+<p> Buildings in database: {{ object.building_set.all.count }} </p>
+
+<a href="{% url 'series-list' %}"> Back to list </a>
 {% endblock content %}

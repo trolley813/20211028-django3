@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h3>Building list</h3>
+<h3>Series list</h3>
 
 <ul>
     {% for object in object_list %}
     <li>
         <b>{{ object.name }}</b>
+        <p>
+            <a href="{% url 'series-update' pk=object.id %}">Edit</a> |
+            <a href="{% url 'series-details' pk=object.id %}">Details</a> |
+            <a href="{% url 'series-delete' pk=object.id %}">Delete</a>
+        </p>
     </li>
     <hr />
     {% endfor %}

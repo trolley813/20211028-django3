@@ -5,7 +5,7 @@
 
 <p>
     {{ object.floor_count }} floors <br>
-    Series: {{ object.series.name }} <br>
+    Series: <a href="{% url 'series-details' pk=object.series.id %}">{{ object.series.name }}</a> <br>
     Built in {{ object.build_date }}
 <p>
 

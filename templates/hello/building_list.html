@@ -3,12 +3,22 @@
 {% block content %}
 <h3>Building list</h3>
 
+<a href="{% url 'building-create' %}">Create new</a>
+
 <ul>
     {% for object in object_list %}
     <li>
         <b>{{ object.address }}</b>
         <br>
-        Build date: {{ object.build_date }}, {{ object.floor_count }} floors, series {{ object.series.name }}
+        Build date: {{ object.build_date }}, {{ object.floor_count }} floors
+        {% if object.series %}
+        , series <a href="{% url 'series-details' pk=object.series.id %}">{{ object.series.name }}</a>
+        {% endif %}
+        <p>
+            <a href="{% url 'building-update' pk=object.id %}">Edit</a> |
+            <a href="{% url 'building-details' pk=object.id %}">Details</a> |
+            <a href="{% url 'building-delete' pk=object.id %}">Delete</a>
+        </p>
     </li>
     <hr />
     {% endfor %}
